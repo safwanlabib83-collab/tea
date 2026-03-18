@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Funny Question</title>
+  <link rel="stylesheet" href="new.css">
+</head>
+<body>
+
+  <h1>can you make a tea for me ?</h1>
+
+  <div id="container">
+    <button id="yesBtn" onclick="yesClicked()">Yes 😍</button>
+    <button id="noBtn">No 😅</button>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+    const container = document.getElementById("container");
+
+    function moveButton() {
+      const maxX = container.clientWidth - noBtn.offsetWidth;
+      const maxY = container.clientHeight - noBtn.offsetHeight;
+
+      const randomX = Math.floor(Math.random() * maxX);
+      const randomY = Math.floor(Math.random() * maxY);
+
+      noBtn.style.left = randomX + "px";
+      noBtn.style.top = randomY + "px";
+    }
+
+    // PC (mouse)
+    noBtn.addEventListener("mouseover", moveButton);
+
+    // 📱 Mobile (touch)
+    noBtn.addEventListener("touchstart", moveButton);
+
+    function yesClicked() {
+      alert("yay!! let's make some tea together! ☕");
+    }
+  </script>
+
+</body>
+</html>
